@@ -40,6 +40,8 @@ These rules are normative for this log.
 
 1. **Append-only.** Prior decisions are never deleted and never re-edited to conceal history. New entries are added; old entries remain.
 
+   The append-only requirement applies to accepted decision entries after this log enters `main`. Draft review changes made before the first merge may revise the proposed structure and entries, provided the PR history remains available. After entry into `main`, corrections to accepted decisions must proceed forward through amendments or later decisions.
+
 2. **Errors are corrected forward.** A mistake is corrected by a later decision or an Amendment that links back to the original record. The original record is not rewritten.
 
 3. **Permitted statuses.** Every decision carries exactly one of:
@@ -97,7 +99,7 @@ An entry must make clear which of the two it is. Recorded prior decisions state 
 
 ## 4. Decisions
 
-> The entries below marked `Accepted` **record prior explicit decisions of the Repository Owner** (see §2.1). `DEC-000` is a **new** governance proposal and remains `Proposed` until the Owner accepts it explicitly.
+> `DEC-001`–`DEC-005`, marked `Accepted`, **record prior explicit decisions of the Repository Owner** (see §2.1). `DEC-000` is a **new** governance decision; it was issued as `Proposed` and then explicitly accepted by the Repository Owner during the review of PR #2 — its acceptance was not conferred by merge or by AI review.
 
 ---
 
@@ -106,14 +108,15 @@ An entry must make clear which of the two it is. Recorded prior decisions state 
 - **Decision ID:** DEC-000
 - **Title:** Decision Governance and Append-Only Record
 - **Date:** 2026-07-28
-- **Status:** Proposed
-- **Authority:** Repository Owner (pending)
+- **Status:** Accepted
+- **Authority:** Repository Owner
+- **Decision date:** 2026-07-28
 
 **Context**
 
 The project has begun making foundational governance decisions but has had no durable, rule-bound mechanism to preserve them. Without a governance memory, declared governance has no record of how it came to be, and the project's official state cannot be reconstructed or audited.
 
-**Decision (proposed)**
+**Decision**
 
 Establish this log as the governance memory of the project, governed by the Record Rules in §2, and specifically resolve that:
 
@@ -154,7 +157,7 @@ Governance that is declared but not remembered is unaccountable. An append-only,
 - Supersedes: none.
 - Superseded by: none.
 
-> This entry establishes the record mechanism itself. It is **not** accepted and **not** ratified by its own presence; it remains `Proposed` until an explicit decision of the Repository Owner.
+> DEC-000 was explicitly accepted by the Repository Owner during the review of PR #2. Its acceptance was not conferred by merge, automation, or AI review.
 
 ---
 
@@ -174,13 +177,13 @@ The project needs an unambiguous source of legal truth and a durable publication
 **Decision (recorded prior owner decision)**
 
 - GitHub is the legal source of truth.
-- IPFS is the immutable, permanent publication layer for appropriate released versions.
+- IPFS is the content-addressed publication layer for appropriate released versions. Release persistence requires maintained pinning and must not be assumed solely from the existence of a CID.
 - `aiaccess.privacy` is the official decentralized identity.
 - No closed website builder is a legal source for any foundational artifact.
 
 **Rationale**
 
-Reference authority requires a source that is traceable, versioned, and not controllable by a third-party vendor. Separating the source of truth (GitHub) from immutable publication (IPFS) and identity (`aiaccess.privacy`) keeps each function independently verifiable.
+Reference authority requires a source that is traceable, versioned, and not controllable by a third-party vendor. Separating the versioned source of truth, content-addressed publication, and decentralized identity keeps their functions independently reviewable.
 
 **Alternatives considered**
 
@@ -190,7 +193,7 @@ Reference authority requires a source that is traceable, versioned, and not cont
 **Consequences**
 
 - Foundational artifacts must live in the repository, not in a closed builder.
-- Released versions may be pinned to IPFS for immutability.
+- Released versions may be pinned to IPFS; content is immutable under its CID, but continued availability depends on maintained pinning.
 
 **Constraints (explicit scope limit)**
 
@@ -430,12 +433,12 @@ Ratification must be a **separate, later decision** — for example:
 1. this `DECISION_LOG.md` has been reviewed and merged, and
 2. a new, explicit approval is issued by the Repository Owner.
 
-Merging this log does not create `DEC-006`, does not accept `DEC-000`, and does not ratify the Category Development Model.
+Merging this log does not create `DEC-006`, does not accept any `Proposed` decision, and does not ratify the Category Development Model. (`DEC-000` was accepted by a separate, explicit owner decision — not by merge.)
 
 ---
 
 ## 6. Open Items
 
-- `DEC-000` awaits explicit owner acceptance.
+- `DEC-000` was explicitly accepted by the Repository Owner during the review of PR #2; the log's rules are therefore in force as a matter of owner decision, not of merge.
 - Ratification of `CATEGORY_DEVELOPMENT_MODEL.md` (`DEC-006`) is not yet proposed and is intentionally deferred until this log is merged and reviewed.
 - Remaining Layer 0 artifacts (`ACCESS_ONTOLOGY.md`, `FIRST_PRINCIPLES.md`, `CANONICAL_LANGUAGE.md`, `CLAIMS_AND_EVIDENCE_POLICY.md`) are not yet created.
