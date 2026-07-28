@@ -550,6 +550,19 @@ Operational governance must distinguish permanently between:
 
 These distinctions must not collapse into a single status.
 
+### Boundary of enforcement
+
+AIAccessPrivacy does not itself execute authorization. Actual enforcement — permitting, denying, or terminating an AI system's access at runtime — is the responsibility of external authorization, IAM, and policy systems.
+
+Within this layer, AIAccessPrivacy defines and maintains only:
+
+- governance state (declared, approved, enforced, accepted exception, out of policy);
+- governance decisions (approvals, exceptions, revocation intent);
+- the evidence and audit history supporting those decisions;
+- integration signals emitted to, and consumed from, the external systems that perform enforcement.
+
+The word "enforced" in this document is therefore a governance status recorded on the basis of evidence from those external systems, not an action performed by AIAccessPrivacy.
+
 ### Completion gate
 
 Layer 5 is complete only when:
@@ -582,7 +595,7 @@ The public reference layer shall remain independent from these paid controls. Pu
 
 The category can survive and spread beyond any single operator, interface, or product.
 
-This is the terminal open layer. It does not mean the project is "finished." It means the category has become capable of persisting and being adopted independently of the founding operator.
+This is the highest currently defined capability layer. It does not mean the project is "finished." It means the category has become capable of persisting and being adopted independently of the founding operator.
 
 ### Required capabilities and conditions
 
@@ -639,7 +652,17 @@ Advancement from one layer to the next requires that the earlier layer's complet
 
 A layer is not entered because a document was written; it is entered because the preceding capability is demonstrably present.
 
-### 6.2 Downgrade and regression
+### 6.2 Exploratory prototypes
+
+Exploratory prototypes of later-layer capabilities are permitted before those layers are formally entered, provided they are:
+
+- **non-normative** — they do not define or constrain the reference, schema, or canonical language;
+- **isolated** — they are kept separate from public reference material and from any layer's delivered artifacts (for example, on an exploratory branch such as `EXP-001`);
+- clearly labeled as experimental.
+
+Such prototypes shall never be counted as layer entry, as maturity, or as conformance, and shall not be cited as evidence that a completion gate or maturity condition has been met. Their existence changes no layer's status.
+
+### 6.3 Downgrade and regression
 
 Layer status is not permanent. A capability that was previously demonstrated may be lost.
 
@@ -703,7 +726,8 @@ This document is a **Foundational Draft — Proposed for Ratification**.
 
 - It is proposed via a review branch and a draft pull request into `main`.
 - It shall not be merged before a full line-by-line review of its layer count, transition conditions, separation of reference authority from commerce, and consistency with the repository's actual state.
-- Upon review and merge, its status may become **Ratified Foundational Governance Artifact**, with the ratification decision recorded in `DECISION_LOG.md`.
+- **Merge and ratification are distinct events.** Merging this document into `main` does not ratify it. On merge its status remains **Foundational Draft — Proposed for Ratification**; merge only makes the proposed draft the reviewed working text on `main`.
+- The status shall become **Ratified Foundational Governance Artifact** only when both conditions are met: `DECISION_LOG.md` exists, and an independent decision by the repository owner recording ratification is entered in it. Until that recorded decision exists, no merge, tag, or release confers ratified status.
 - A status change that does not alter normative content does not require a version increment; it is sufficient to record the ratification decision in `DECISION_LOG.md`.
 
 Substantive amendments to the normative content of any layer shall increment the version and be recorded in `DECISION_LOG.md`.
