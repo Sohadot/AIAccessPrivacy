@@ -1,7 +1,7 @@
 # AI Access Privacy Category Development Model
 
-**Status:** Foundational Governance Artifact  
-**Version:** 0.1.0  
+**Status:** Foundational Draft — Proposed for Ratification  
+**Version:** 0.2.0  
 **Canonical Repository:** `Sohadot/AIAccessPrivacy`  
 **Primary Asset:** `aiaccess.privacy`  
 **Asset Posture:** Permanent Sovereign Operating Asset  
@@ -467,4 +467,267 @@ Changes in AI access posture can be detected, classified, and communicated over 
 - scheduled reassessment;
 - version comparison;
 - permission change detection;
-- tool and endpoint change detection
+- tool and endpoint change detection;
+- subprocessor and integration change detection;
+- model or provider change detection;
+- retention and data-handling change detection;
+- revocation and expiry tracking;
+- change classification (material vs. non-material);
+- notification and alerting;
+- historical change timeline.
+
+### Required outcomes
+
+The observation layer must be able to:
+
+- establish a reference baseline for an access relationship;
+- detect when a declared or observed posture changes;
+- distinguish material changes from cosmetic ones;
+- preserve a reviewable history of every change;
+- express when an assessment has expired;
+- communicate changes without requiring manual re-inspection.
+
+### Completion gate
+
+Layer 4 is complete only when:
+
+- a baseline can be reproduced from documented sources;
+- changes are detected without destroying prior state;
+- material and non-material changes are classified consistently;
+- expiry is enforced rather than assumed;
+- notifications reflect evidence rather than speculation.
+
+### Commercial state
+
+Continuous observation is inherently a recurring-value capability.
+
+Recurring revenue may arise from:
+
+- scheduled monitoring;
+- change alerting;
+- historical timelines;
+- drift and posture-change reporting;
+- reassessment bound to a service level.
+
+Free access may remain limited to point-in-time inspection.
+
+---
+
+## Layer 5 — Operational Governance
+
+### Capability added
+
+An organization can operate the category internally — governing, approving, and enforcing AI access posture across its own systems and the third parties it depends on.
+
+This capability is not tied to a single customer type. It enables organized operation of AI access rather than the resale of a product to enterprises.
+
+### Core product capability
+
+> **AI Access Governance Operations**
+
+### Required capabilities
+
+- access inventories;
+- private registries;
+- policy rules;
+- approval workflows;
+- exception handling;
+- enforcement workflows;
+- role-based accountability;
+- audit history;
+- integrations with existing operational systems;
+- organizational reporting.
+
+### Required distinctions
+
+Operational governance must distinguish permanently between:
+
+- what is **declared**;
+- what is **approved**;
+- what is **enforced**;
+- what is an **accepted exception**;
+- what is **out of policy**.
+
+These distinctions must not collapse into a single status.
+
+### Boundary of enforcement
+
+AIAccessPrivacy does not itself execute authorization. Actual enforcement — permitting, denying, or terminating an AI system's access at runtime — is the responsibility of external authorization, IAM, and policy systems.
+
+Within this layer, AIAccessPrivacy defines and maintains only:
+
+- governance state (declared, approved, enforced, accepted exception, out of policy);
+- governance decisions (approvals, exceptions, revocation intent);
+- the evidence and audit history supporting those decisions;
+- integration signals emitted to, and consumed from, the external systems that perform enforcement.
+
+The word "enforced" in this document is therefore a governance status recorded on the basis of evidence from those external systems, not an action performed by AIAccessPrivacy.
+
+### Completion gate
+
+Layer 5 is complete only when:
+
+- an organization can maintain an inventory of its AI access relationships;
+- policies can be expressed and evaluated against declarations;
+- exceptions are recorded rather than hidden;
+- approvals and enforcement produce an auditable trail;
+- governance state is separable from public reference state.
+
+### Commercial state
+
+Operational governance is the primary layer for durable organizational revenue.
+
+Recurring revenue may arise from:
+
+- private registries and inventories;
+- policy and approval workflows;
+- enforcement and exception management;
+- audit and compliance reporting;
+- integrations and high-volume API access.
+
+The public reference layer shall remain independent from these paid controls. Purchasing operational tooling shall never alter a public posture, verification level, or evidence classification.
+
+---
+
+## Layer 6 — Ecosystem and Institutional Durability
+
+### Capability added
+
+The category can survive and spread beyond any single operator, interface, or product.
+
+This is the highest currently defined capability layer. It does not mean the project is "finished." It means the category has become capable of persisting and being adopted independently of the founding operator.
+
+### Required capabilities and conditions
+
+- independent implementations;
+- SDKs and interoperability;
+- conformance testing;
+- external adoption;
+- ecosystem extensions;
+- governance continuity;
+- historical preservation;
+- reduced dependence on the founding operator.
+
+### Required outcomes
+
+The durability layer must ensure that:
+
+- the reference can be implemented by parties other than the founder;
+- conformance can be verified independently;
+- the category's history is preserved and recoverable;
+- governance can continue across changes in stewardship;
+- adoption does not depend on a single commercial interface.
+
+### Maturity conditions
+
+Layer 6 is not "completed" in the sense of being finished and closed.
+
+It is measured by maturity conditions, including:
+
+- at least one independent, conformant implementation exists;
+- conformance can be verified by a third party;
+- the reference survives the loss of any single operator;
+- historical records remain accessible and tamper-evident;
+- canonical reference authority is earned and continuously maintained rather than self-asserted.
+
+### On canonical reference authority
+
+Canonical or institutional reference authority is a **maturity condition within this layer, not a guaranteed endpoint and not a separate layer to be built and completed.**
+
+It must be continuously earned through transparency, consistency, and independent corroboration. It can be lost if evidence, maintenance, or neutrality lapse. For this reason it is expressed here as a condition to be acquired and preserved, not as a feature whose delivery concludes the project.
+
+### Commercial state
+
+Durability protects long-term value rather than generating direct revenue.
+
+Sustainable revenue from earlier layers funds the neutrality, maintenance, and continuity that durability requires.
+
+---
+
+## 6. Layer Transition and Downgrade Rules
+
+### 6.1 Advancement
+
+Advancement from one layer to the next requires that the earlier layer's completion gate (or, for Layer 6, its maturity conditions) be met and that the transition be recorded in `DECISION_LOG.md`.
+
+A layer is not entered because a document was written; it is entered because the preceding capability is demonstrably present.
+
+### 6.2 Exploratory prototypes
+
+Exploratory prototypes of later-layer capabilities are permitted before those layers are formally entered, provided they are:
+
+- **non-normative** — they do not define or constrain the reference, schema, or canonical language;
+- **isolated** — they are kept separate from public reference material and from any layer's delivered artifacts (for example, on an exploratory branch such as `EXP-001`);
+- clearly labeled as experimental.
+
+Such prototypes shall never be counted as layer entry, as maturity, or as conformance, and shall not be cited as evidence that a completion gate or maturity condition has been met. Their existence changes no layer's status.
+
+### 6.3 Downgrade and regression
+
+Layer status is not permanent. A capability that was previously demonstrated may be lost.
+
+A layer or a specific claim shall be downgraded when:
+
+- the evidence supporting it expires or is withdrawn;
+- continuous observation is no longer maintained;
+- a maturity condition ceases to hold;
+- an independent implementation or verification is no longer available;
+- a governance obligation is not met.
+
+A downgrade must be recorded in `DECISION_LOG.md` with its cause. Regression shall be represented honestly rather than concealed, in the same way that missing evidence is represented explicitly rather than assumed favorable.
+
+---
+
+## 7. Separation of Reference Authority and Commerce
+
+The separation established in Principle 3.7 applies across every layer and is restated here as a permanent structural constraint:
+
+- The public reference — definitions, schema, methodology, and canonical language — shall remain independent of paid services.
+- Commercial revenue may fund neutrality and continuity but shall never purchase a conclusion, verification level, ranking, or evidence classification.
+- Operational governance tooling (Layer 5) and durability infrastructure (Layer 6) shall not create a private path to alter public posture.
+
+Where a commercial relationship exists, it shall be disclosed.
+
+---
+
+## 8. Long-Term Value Accumulation
+
+The project's value compounds through accumulation rather than through releases.
+
+Value accumulates in:
+
+- reference authority earned through transparency;
+- accumulated, evidence-linked history;
+- machine-readable infrastructure that others can build on;
+- trusted adoption independent of a single interface;
+- recurring revenue that sustains independence;
+- institutional continuity across changes in stewardship.
+
+No single release completes this accumulation. Each layer adds a durable capability that the following layers depend upon.
+
+---
+
+## 9. Current State
+
+This section records the actual state of the repository and must be kept consistent with it.
+
+- **Active layer:** Layer 0 — Category Foundation (in progress).
+- **Present artifacts:** `CATEGORY_THESIS.md`, `CATEGORY_BOUNDARY.md`, and this `CATEGORY_DEVELOPMENT_MODEL.md`.
+- **Pending Layer 0 artifacts:** `ACCESS_ONTOLOGY.md`, `FIRST_PRINCIPLES.md`, `CANONICAL_LANGUAGE.md`, `CLAIMS_AND_EVIDENCE_POLICY.md`, `DECISION_LOG.md`.
+- **Layers 1–6:** not yet entered; described here as the governed development path, not as delivered capabilities.
+
+The Layer 0 completion gate is not yet met. This document proposes the development model; it does not assert that any layer beyond the current foundation work has been achieved.
+
+---
+
+## 10. Amendment and Ratification
+
+This document is a **Foundational Draft — Proposed for Ratification**.
+
+- It is proposed via a review branch and a draft pull request into `main`.
+- It shall not be merged before a full line-by-line review of its layer count, transition conditions, separation of reference authority from commerce, and consistency with the repository's actual state.
+- **Merge and ratification are distinct events.** Merging this document into `main` does not ratify it. On merge its status remains **Foundational Draft — Proposed for Ratification**; merge only makes the proposed draft the reviewed working text on `main`.
+- The status shall become **Ratified Foundational Governance Artifact** only when both conditions are met: `DECISION_LOG.md` exists, and an independent decision by the repository owner recording ratification is entered in it. Until that recorded decision exists, no merge, tag, or release confers ratified status.
+- A status change that does not alter normative content does not require a version increment; it is sufficient to record the ratification decision in `DECISION_LOG.md`.
+
+Substantive amendments to the normative content of any layer shall increment the version and be recorded in `DECISION_LOG.md`.
