@@ -1,0 +1,96 @@
+{
+  "spec_version": "0.1",
+  "declaration_id": "urn:uuid:7c9e6679-7425-40de-944b-e07fc1f90ae7",
+  "issued_at": "2026-07-28T00:00:00Z",
+  "expires_at": "2027-07-28T00:00:00Z",
+  "issuer": {
+    "name": "Example Corp",
+    "uri": "https://example.com",
+    "contact": "governance@example.com",
+    "role": "resource-owner"
+  },
+  "ai_system": {
+    "name": "SupportAssistant",
+    "operator": "Example Corp",
+    "model_family": "claude",
+    "agentic": true,
+    "identifier": "did:web:example.com:agents:support"
+  },
+  "access_grants": [
+    {
+      "resource": {
+        "type": "data",
+        "identifier": "https://example.com/api/customers"
+      },
+      "permitted_operations": ["read"],
+      "purpose": "Answer customer support questions using the customer's own records.",
+      "conditions": [
+        "request originates from an authenticated end-user session",
+        "requested record belongs to the requesting end-user"
+      ],
+      "data_exposure": {
+        "classes": ["pii"],
+        "retention": "session",
+        "training_use": false
+      },
+      "identity_context": {
+        "on_behalf_of": "end-user",
+        "delegation": "oauth2:audience=support-api"
+      },
+      "authorization": {
+        "mechanism": "oauth2",
+        "reference": "token-audience:support-api"
+      }
+    },
+    {
+      "resource": {
+        "type": "tool",
+        "identifier": "https://example.com/tools/refund"
+      },
+      "permitted_operations": ["invoke"],
+      "purpose": "Issue refunds up to a bounded amount after human confirmation.",
+      "conditions": [
+        "refund amount <= 100 USD",
+        "human confirmation recorded"
+      ],
+      "identity_context": {
+        "on_behalf_of": "service-account"
+      },
+      "authorization": {
+        "mechanism": "iam-role",
+        "reference": "role:refund-limited"
+      }
+    }
+  ],
+  "prohibitions": [
+    {
+      "resource": {
+        "type": "data",
+        "identifier": "https://example.com/api/customers"
+      },
+      "operation": "write",
+      "reason": "The assistant must never modify customer records."
+    },
+    {
+      "operation": "execute",
+      "reason": "No arbitrary code execution is permitted under any grant."
+    }
+  ],
+  "verification": {
+    "status": "third-party-verified",
+    "method": "Independent review of access grants against runtime logs.",
+    "verified_by": "https://auditor.example.org",
+    "evidence_uri": "https://auditor.example.org/reports/example-corp-2026.pdf",
+    "verified_at": "2026-07-20T00:00:00Z"
+  },
+  "observation": {
+    "logging": true,
+    "endpoint": "https://example.com/.well-known/ai-access-observation",
+    "frequency": "real-time"
+  },
+  "revocation": {
+    "status": "active",
+    "uri": "https://example.com/.well-known/ai-access-revocation",
+    "contact": "governance@example.com"
+  }
+}

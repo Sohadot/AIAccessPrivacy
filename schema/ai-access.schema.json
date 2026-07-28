@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aiaccessprivacy.org/schema/ai-access.schema.json",
+  "title": "AI Access Declaration",
+  "description": "Machine-readable declaration of governed AI access conditions. Specification v0.1.",
+  "type": "object",
+  "required": [
+    "spec_version",
+    "declaration_id",
+    "issued_at",
+    "issuer",
+    "ai_system",
+    "access_grants",
+    "revocation"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "spec_version": { "const": "0.1" },
+    "declaration_id": { "type": "string", "minLength": 1 },
+    "issued_at": { "type": "string", "format": "date-time" },
+    "expires_at": { "type": "string", "format": "date-time" },
+    "issuer": {
+      "type": "object",
+      "required": ["name", "contact", "role"],
+      "properties": {
+        "name": { "type": "string" },
+        "uri": { "type": "string", "format": "uri" },
+        "contact": { "type": "string" },
+        "role": {
+          "type": "string",
+          "enum": ["resource-owner", "ai-operator", "third-party-auditor"]
+        }
+      }
+    },
+    "ai_system": {
+      "type": "object",
+      "required": ["name", "operator", "agentic"],
+      "properties": {
+        "name": { "type": "string" },
+        "operator": { "type": "string" },
+        "model_family": { "type": "string" },
+        "agentic": { "type": "boolean" },
+        "identifier": { "type": "string" }
+      }
+    },
+    "access_grants": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["resource", "permitted_operations", "purpose"],
+        "properties": {
+          "resource": {
+            "type": "object",
+            "required": ["type", "identifier"],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["data", "identity", "tool", "service", "execution"]
+              },
+              "identifier": { "type": "string" }
+            }
+          },
+          "permitted_operations": {
+            "type": "array",
+            "items": { "type": "string" },
+            "minItems": 1
+          },
+          "purpose": { "type": "string" },
+          "conditions": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "data_exposure": {
+            "type": "object",
+            "properties": {
+              "classes": { "type": "array", "items": { "type": "string" } },
+              "retention": { "type": "string" },
+              "training_use": { "type": "boolean" }
+            }
+          },
+          "identity_context": {
+            "type": "object",
+            "properties": {
+              "on_behalf_of": {
+                "type": "string",
+                "enum": ["end-user", "service-account", "autonomous"]
+              },
+              "delegation": { "type": "string" }
+            }
+          },
+          "authorization": {
+            "type": "object",
+            "properties": {
+              "mechanism": { "type": "string" },
+              "reference": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "prohibitions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["operation"],
+        "properties": {
+          "resource": { "type": "object" },
+          "operation": { "type": "string" },
+          "reason": { "type": "string" }
+        }
+      }
+    },
+    "verification": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["unverified", "self-attested", "third-party-verified"]
+        },
+        "method": { "type": "string" },
+        "verified_by": { "type": "string" },
+        "evidence_uri": { "type": "string" },
+        "verified_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "observation": {
+      "type": "object",
+      "properties": {
+        "logging": { "type": "boolean" },
+        "endpoint": { "type": "string" },
+        "frequency": { "type": "string" }
+      }
+    },
+    "revocation": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["active", "suspended", "revoked"]
+        },
+        "revoked_at": { "type": "string", "format": "date-time" },
+        "uri": { "type": "string" },
+        "contact": { "type": "string" }
+      }
+    }
+  }
+}
