@@ -1,7 +1,7 @@
 # AI Access Privacy Category Development Model
 
 **Status:** Foundational Draft — Proposed for Ratification  
-**Version:** 0.2.0  
+**Version:** 0.2.1  
 **Canonical Repository:** `Sohadot/AIAccessPrivacy`  
 **Primary Asset:** `aiaccess.privacy`  
 **Asset Posture:** Permanent Sovereign Operating Asset  
@@ -712,11 +712,12 @@ No single release completes this accumulation. Each layer adds a durable capabil
 This section records the actual state of the repository and must be kept consistent with it.
 
 - **Active layer:** Layer 0 — Category Foundation (in progress).
-- **Present artifacts:** `CATEGORY_THESIS.md`, `CATEGORY_BOUNDARY.md`, and this `CATEGORY_DEVELOPMENT_MODEL.md`.
-- **Pending Layer 0 artifacts:** `ACCESS_ONTOLOGY.md`, `FIRST_PRINCIPLES.md`, `CANONICAL_LANGUAGE.md`, `CLAIMS_AND_EVIDENCE_POLICY.md`, `DECISION_LOG.md`.
+- **Present artifacts:** `CATEGORY_THESIS.md`, `CATEGORY_BOUNDARY.md`, `CATEGORY_DEVELOPMENT_MODEL.md`, and `DECISION_LOG.md`.
+- **Pending Layer 0 artifacts:** `ACCESS_ONTOLOGY.md`, `FIRST_PRINCIPLES.md`, `CANONICAL_LANGUAGE.md`, and `CLAIMS_AND_EVIDENCE_POLICY.md`.
 - **Layers 1–6:** not yet entered; described here as the governed development path, not as delivered capabilities.
+- **Governance record:** `DECISION_LOG.md` is the official working governance memory under accepted `DEC-000`.
 
-The Layer 0 completion gate is not yet met. This document proposes the development model; it does not assert that any layer beyond the current foundation work has been achieved.
+The Layer 0 completion gate is not yet met. Ratification of this development model governs the path of development; it does not assert that Layer 0 is complete or that any later layer has been entered.
 
 ---
 
@@ -724,10 +725,10 @@ The Layer 0 completion gate is not yet met. This document proposes the developme
 
 This document is a **Foundational Draft — Proposed for Ratification**.
 
-- It is proposed via a review branch and a draft pull request into `main`.
-- It shall not be merged before a full line-by-line review of its layer count, transition conditions, separation of reference authority from commerce, and consistency with the repository's actual state.
-- **Merge and ratification are distinct events.** Merging this document into `main` does not ratify it. On merge its status remains **Foundational Draft — Proposed for Ratification**; merge only makes the proposed draft the reviewed working text on `main`.
-- The status shall become **Ratified Foundational Governance Artifact** only when both conditions are met: `DECISION_LOG.md` exists, and an independent decision by the repository owner recording ratification is entered in it. Until that recorded decision exists, no merge, tag, or release confers ratified status.
-- A status change that does not alter normative content does not require a version increment; it is sufficient to record the ratification decision in `DECISION_LOG.md`.
-
-Substantive amendments to the normative content of any layer shall increment the version and be recorded in `DECISION_LOG.md`.
+- Version 0.2.0 was reviewed through Pull Request #1 and merged into `main` in merge commit `7019769`.
+- That merge established the reviewed working text but did not ratify the document.
+- `DECISION_LOG.md` now exists on `main`, and `DEC-000` establishes it as the official working governance record.
+- Ratification remains a separate owner decision and must be recorded in `DECISION_LOG.md`.
+- Until that decision is recorded, no merge, tag, release, or use of this document confers ratified status.
+- A status-only change following ratification does not require a version increment.
+- Substantive amendments to normative content require an appropriate version increment and a recorded governance decision.
