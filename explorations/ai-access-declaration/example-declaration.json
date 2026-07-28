@@ -1,5 +1,6 @@
 {
-  "spec_version": "0.1",
+  "_comment": "EXP-001 — SYNTHETIC EXAMPLE, EXPLORATORY AND NON-NORMATIVE. Every party, endpoint, and value in this file is fabricated for illustration. It is not a conformant artifact of any standard, must not be published at a well-known URI, and must not be treated as a real declaration. Verification status is deliberately set to self-attested: no evidence model exists yet, so an example asserting third-party verification would normalize a strong claim the project cannot currently support. See PROTOTYPE.md and OPEN_QUESTIONS.md.",
+  "prototype_version": "0.1-exploratory",
   "declaration_id": "urn:uuid:7c9e6679-7425-40de-944b-e07fc1f90ae7",
   "issued_at": "2026-07-28T00:00:00Z",
   "expires_at": "2027-07-28T00:00:00Z",
@@ -12,7 +13,7 @@
   "ai_system": {
     "name": "SupportAssistant",
     "operator": "Example Corp",
-    "model_family": "claude",
+    "model_family": "example",
     "agentic": true,
     "identifier": "did:web:example.com:agents:support"
   },
@@ -77,20 +78,19 @@
     }
   ],
   "verification": {
-    "status": "third-party-verified",
-    "method": "Independent review of access grants against runtime logs.",
-    "verified_by": "https://auditor.example.org",
-    "evidence_uri": "https://auditor.example.org/reports/example-corp-2026.pdf",
+    "status": "self-attested",
+    "method": "Internal review by the issuer. No independent verification performed.",
+    "verified_by": "Example Corp (self)",
     "verified_at": "2026-07-20T00:00:00Z"
   },
   "observation": {
     "logging": true,
-    "endpoint": "https://example.com/.well-known/ai-access-observation",
+    "endpoint": "https://example.com/observation",
     "frequency": "real-time"
   },
   "revocation": {
     "status": "active",
-    "uri": "https://example.com/.well-known/ai-access-revocation",
+    "uri": "https://example.com/revocation",
     "contact": "governance@example.com"
   }
 }

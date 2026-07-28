@@ -1,11 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://aiaccessprivacy.org/schema/ai-access.schema.json",
-  "title": "AI Access Declaration",
-  "description": "Machine-readable declaration of governed AI access conditions. Specification v0.1.",
+  "$id": "urn:ai-access-privacy:schema:prototype:0.1",
+  "$comment": "EXP-001 — EXPLORATORY PROTOTYPE, NON-NORMATIVE. This schema does not define AI Access Privacy and is not a standard. It validates the shape of a modeling experiment only. The identifier is a URN precisely because no domain has been adopted for this project and no schema URL is owned; do not substitute a domain-based $id until one exists. This schema is deliberately permissive and will pass documents containing typos and unknown fields — see OPEN_QUESTIONS.md Q12. Do not implement.",
+  "title": "AI Access Declaration (Exploratory Prototype)",
+  "description": "Non-normative shape produced by a modeling experiment. Retained as evidence, not as a specification.",
   "type": "object",
   "required": [
-    "spec_version",
+    "prototype_version",
     "declaration_id",
     "issued_at",
     "issuer",
@@ -15,7 +16,10 @@
   ],
   "additionalProperties": true,
   "properties": {
-    "spec_version": { "const": "0.1" },
+    "prototype_version": {
+      "const": "0.1-exploratory",
+      "$comment": "Deliberately not named spec_version, and deliberately not a plain semver — an instance document must not read as conformant to a standard."
+    },
     "declaration_id": { "type": "string", "minLength": 1 },
     "issued_at": { "type": "string", "format": "date-time" },
     "expires_at": { "type": "string", "format": "date-time" },
@@ -28,7 +32,8 @@
         "contact": { "type": "string" },
         "role": {
           "type": "string",
-          "enum": ["resource-owner", "ai-operator", "third-party-auditor"]
+          "enum": ["resource-owner", "ai-operator", "third-party-auditor"],
+          "$comment": "Open question 2: these three roles perform different speech acts (grant / claim / attestation) but share one document shape."
         }
       }
     },
@@ -46,6 +51,7 @@
     "access_grants": {
       "type": "array",
       "minItems": 1,
+      "$comment": "Open question 8: no composition model — delegation chains cannot be expressed.",
       "items": {
         "type": "object",
         "required": ["resource", "permitted_operations", "purpose"],
@@ -56,7 +62,8 @@
             "properties": {
               "type": {
                 "type": "string",
-                "enum": ["data", "identity", "tool", "service", "execution"]
+                "enum": ["data", "identity", "tool", "service", "execution"],
+                "$comment": "Open question 3: treated here as a partition, but these overlap in practice."
               },
               "identifier": { "type": "string" }
             }
@@ -66,10 +73,14 @@
             "items": { "type": "string" },
             "minItems": 1
           },
-          "purpose": { "type": "string" },
+          "purpose": {
+            "type": "string",
+            "$comment": "Open question 4: unverifiable free text carrying most of the privacy weight."
+          },
           "conditions": {
             "type": "array",
-            "items": { "type": "string" }
+            "items": { "type": "string" },
+            "$comment": "Open question 5: prose, with no semantics of evaluation."
           },
           "data_exposure": {
             "type": "object",
@@ -91,6 +102,7 @@
           },
           "authorization": {
             "type": "object",
+            "$comment": "Open question 9: possible leak across the boundary drawn in CATEGORY_BOUNDARY.md.",
             "properties": {
               "mechanism": { "type": "string" },
               "reference": { "type": "string" }
@@ -113,6 +125,7 @@
     },
     "verification": {
       "type": "object",
+      "$comment": "Open question 6: conflates verifying truthfulness with verifying boundedness.",
       "properties": {
         "status": {
           "type": "string",
@@ -135,6 +148,7 @@
     "revocation": {
       "type": "object",
       "required": ["status"],
+      "$comment": "Open question 7: unclear whether lifecycle belongs to the declaration or the underlying grant.",
       "properties": {
         "status": {
           "type": "string",
