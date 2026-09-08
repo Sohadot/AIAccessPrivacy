@@ -729,6 +729,7 @@ This document is a **Foundational Draft — Proposed for Ratification**.
 - That merge established the reviewed working text but did not ratify the document.
 - `DECISION_LOG.md` now exists on `main`, and `DEC-000` establishes it as the official working governance record.
 - Ratification remains a separate owner decision and must be recorded in `DECISION_LOG.md`.
-- Until that decision is recorded, no merge, tag, release, or use of this document confers ratified status.
-- A status-only change following ratification does not require a version increment.
-- Substantive amendments to normative content require an appropriate version increment and a recorded governance decision.
+- Until that decision is recorded, no merge, tag, or release confers ratified status.
+- A status change that does not alter normative content does not require a version increment; it is sufficient to record the ratification decision in `DECISION_LOG.md`.
+
+Substantive amendments to the normative content of any layer shall increment the version and be recorded in `DECISION_LOG.md`.
